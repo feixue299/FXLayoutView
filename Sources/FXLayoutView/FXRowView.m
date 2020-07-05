@@ -9,6 +9,8 @@
 #import "FXRowView.h"
 
 @interface FXRowView ()
+@property (nonatomic, strong) UIView *contentView;
+
 @property (nonatomic, strong) UIView *maxHeightView;
 @property (nonatomic, strong) NSLayoutConstraint *rightLayout;
 
@@ -25,11 +27,8 @@
     [self fx_addCrossAxisConstraintWithView:view];
 
     if (self.subviews.count == 1) {
-        [view.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:0].active = YES;
+        [view.leftAnchor constraintEqualToAnchor:self.leftAnchor].active = YES;
         [self fx_addSupplementConstraintWithView:view];
-        
-        self.rightLayout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:0];
-        self.rightLayout.active = YES;
         self.maxHeightView = view;
     } else {
         UIView *preView = self.subviews[self.subviews.count - 2];
@@ -41,12 +40,32 @@
             self.maxHeightView = view;
             [self fx_addSupplementConstraintWithView:view];
         }
-
         self.rightLayout.active = NO;
-        [view.leftAnchor constraintEqualToAnchor:preView.rightAnchor constant:0].active = YES;
-        self.rightLayout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:0];
-        self.rightLayout.active = YES;
+        [preView.rightAnchor constraintEqualToAnchor:view.leftAnchor].active = YES;
+        [preView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     }
+    self.rightLayout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
+    self.rightLayout.active = YES;
+    [self fx_updateRightConstant];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self fx_updateRightConstant];
+}
+
+- (void)fx_updateRightConstant {
+    CGFloat widthTotal = 0;
+    for (UIView *view in self.subviews) {
+        CGSize size = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        NSLog(@"view.size:%@, view.intrinsicContentSize:%@", NSStringFromCGSize(size), NSStringFromCGSize(view.intrinsicContentSize));
+        widthTotal += size.width;
+    }
+    CGFloat width = self.frame.size.width;
+    CGFloat rightPadding = MAX(width - widthTotal, 0);
+    NSLog(@"widthTotal:%f, width:%f", widthTotal, width);
+    self.rightLayout.constant = -rightPadding;
 }
 
 - (void)fx_addSupplementConstraintWithView:(UIView *)view {

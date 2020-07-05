@@ -39,7 +39,6 @@
     }
     {
         UISwitch *switchView = [[UISwitch alloc] init];
-        switchView.backgroundColor = UIColor.lightGrayColor;
         [self.rowView addSubview:switchView];
     }
     {
@@ -52,7 +51,7 @@
         UILabel *label = [[UILabel alloc] init];
         
         label.backgroundColor = [UIColor colorWithRed:(float)arc4random_uniform(256) / 255 green:(float)arc4random_uniform(256) / 255 blue:(float)arc4random_uniform(256) / 255 alpha:1];
-        label.text = [NSString stringWithFormat:@"test"];
+        label.text = [NSString stringWithFormat:@"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"];
         
         [self.rowView addSubview:label];
     }
