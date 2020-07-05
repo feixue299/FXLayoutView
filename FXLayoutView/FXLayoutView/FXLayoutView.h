@@ -15,5 +15,6 @@ FOUNDATION_EXPORT double FXLayoutViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char FXLayoutViewVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <FXLayoutView/PublicHeader.h>
-
+#import <FXLayoutView/FXRowView.h>
+#import <FXLayoutView/FXColumnView.h>
 

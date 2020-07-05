@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXLayoutHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FXColumnView : UIView
-
+@property (nonatomic) FXMainAxisAlignment mainAxisAlignment;
 @end
 
 NS_ASSUME_NONNULL_END

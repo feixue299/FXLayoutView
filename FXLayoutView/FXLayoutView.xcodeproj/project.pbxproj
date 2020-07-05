@@ -8,11 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		1FDA43E224B1CE6300D69168 /* FXLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43E024B1CE6300D69168 /* FXLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EA24B1CEAC00D69168 /* FXRowView.h */; };
+		1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EA24B1CEAC00D69168 /* FXRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDA43ED24B1CEAC00D69168 /* FXRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43EB24B1CEAC00D69168 /* FXRowView.m */; };
-		1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EE24B1CF2100D69168 /* FXColumnView.h */; };
+		1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EE24B1CF2100D69168 /* FXColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDA43F124B1CF2100D69168 /* FXColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43EF24B1CF2100D69168 /* FXColumnView.m */; };
+		1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43F924B1D58500D69168 /* AppDelegate.m */; };
+		1FDA43FD24B1D58500D69168 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43FC24B1D58500D69168 /* SceneDelegate.m */; };
+		1FDA440024B1D58500D69168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43FF24B1D58500D69168 /* ViewController.m */; };
+		1FDA440324B1D58500D69168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440124B1D58500D69168 /* Main.storyboard */; };
+		1FDA440524B1D58A00D69168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440424B1D58A00D69168 /* Assets.xcassets */; };
+		1FDA440824B1D58A00D69168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */; };
+		1FDA440B24B1D58A00D69168 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA440A24B1D58A00D69168 /* main.m */; };
+		1FDA441224B239C400D69168 /* FXLayoutHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA441124B232E800D69168 /* FXLayoutHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FDA440F24B1D59900D69168 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FDA43D424B1CE6300D69168 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FDA43DC24B1CE6300D69168;
+			remoteInfo = FXLayoutView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FXLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +40,30 @@
 		1FDA43EB24B1CEAC00D69168 /* FXRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXRowView.m; sourceTree = "<group>"; };
 		1FDA43EE24B1CF2100D69168 /* FXColumnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXColumnView.h; sourceTree = "<group>"; };
 		1FDA43EF24B1CF2100D69168 /* FXColumnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXColumnView.m; sourceTree = "<group>"; };
+		1FDA43F624B1D58500D69168 /* FXLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FDA43F824B1D58500D69168 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1FDA43F924B1D58500D69168 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1FDA43FB24B1D58500D69168 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		1FDA43FC24B1D58500D69168 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		1FDA43FE24B1D58500D69168 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1FDA43FF24B1D58500D69168 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1FDA440224B1D58500D69168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1FDA440424B1D58A00D69168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FDA440724B1D58A00D69168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FDA440924B1D58A00D69168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FDA440A24B1D58A00D69168 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FDA441124B232E800D69168 /* FXLayoutHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1FDA43DA24B1CE6300D69168 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDA43F324B1D58500D69168 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA43DF24B1CE6300D69168 /* FXLayoutView */,
+				1FDA43F724B1D58500D69168 /* FXLayout */,
 				1FDA43DE24B1CE6300D69168 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */,
+				1FDA43F624B1D58500D69168 /* FXLayout.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,12 +113,31 @@
 		1FDA43E924B1CE9900D69168 /* FXLayoutView */ = {
 			isa = PBXGroup;
 			children = (
+				1FDA441124B232E800D69168 /* FXLayoutHeader.h */,
 				1FDA43EA24B1CEAC00D69168 /* FXRowView.h */,
 				1FDA43EB24B1CEAC00D69168 /* FXRowView.m */,
 				1FDA43EE24B1CF2100D69168 /* FXColumnView.h */,
 				1FDA43EF24B1CF2100D69168 /* FXColumnView.m */,
 			);
 			path = FXLayoutView;
+			sourceTree = "<group>";
+		};
+		1FDA43F724B1D58500D69168 /* FXLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1FDA43F824B1D58500D69168 /* AppDelegate.h */,
+				1FDA43F924B1D58500D69168 /* AppDelegate.m */,
+				1FDA43FB24B1D58500D69168 /* SceneDelegate.h */,
+				1FDA43FC24B1D58500D69168 /* SceneDelegate.m */,
+				1FDA43FE24B1D58500D69168 /* ViewController.h */,
+				1FDA43FF24B1D58500D69168 /* ViewController.m */,
+				1FDA440124B1D58500D69168 /* Main.storyboard */,
+				1FDA440424B1D58A00D69168 /* Assets.xcassets */,
+				1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */,
+				1FDA440924B1D58A00D69168 /* Info.plist */,
+				1FDA440A24B1D58A00D69168 /* main.m */,
+			);
+			path = FXLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +150,7 @@
 				1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */,
 				1FDA43E224B1CE6300D69168 /* FXLayoutView.h in Headers */,
 				1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */,
+				1FDA441224B239C400D69168 /* FXLayoutHeader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +175,24 @@
 			productReference = 1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1FDA43F524B1D58500D69168 /* FXLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDA440C24B1D58A00D69168 /* Build configuration list for PBXNativeTarget "FXLayout" */;
+			buildPhases = (
+				1FDA43F224B1D58500D69168 /* Sources */,
+				1FDA43F324B1D58500D69168 /* Frameworks */,
+				1FDA43F424B1D58500D69168 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FDA441024B1D59900D69168 /* PBXTargetDependency */,
+			);
+			name = FXLayout;
+			productName = FXLayout;
+			productReference = 1FDA43F624B1D58500D69168 /* FXLayout.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -125,6 +203,9 @@
 				ORGANIZATIONNAME = Mr.wu;
 				TargetAttributes = {
 					1FDA43DC24B1CE6300D69168 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					1FDA43F524B1D58500D69168 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -143,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				1FDA43DC24B1CE6300D69168 /* FXLayoutView */,
+				1FDA43F524B1D58500D69168 /* FXLayout */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +234,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDA43F424B1D58500D69168 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDA440824B1D58A00D69168 /* LaunchScreen.storyboard in Resources */,
+				1FDA440524B1D58A00D69168 /* Assets.xcassets in Resources */,
+				1FDA440324B1D58500D69168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +259,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FDA43F224B1D58500D69168 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDA440024B1D58500D69168 /* ViewController.m in Sources */,
+				1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */,
+				1FDA440B24B1D58A00D69168 /* main.m in Sources */,
+				1FDA43FD24B1D58500D69168 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FDA441024B1D59900D69168 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FDA43DC24B1CE6300D69168 /* FXLayoutView */;
+			targetProxy = 1FDA440F24B1D59900D69168 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1FDA440124B1D58500D69168 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDA440224B1D58500D69168 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDA440724B1D58A00D69168 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1FDA43E324B1CE6300D69168 /* Debug */ = {
@@ -334,6 +464,38 @@
 			};
 			name = Release;
 		};
+		1FDA440D24B1D58A00D69168 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FXLayout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wpf.FXLayout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FDA440E24B1D58A00D69168 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FXLayout/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wpf.FXLayout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -351,6 +513,15 @@
 			buildConfigurations = (
 				1FDA43E624B1CE6300D69168 /* Debug */,
 				1FDA43E724B1CE6300D69168 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FDA440C24B1D58A00D69168 /* Build configuration list for PBXNativeTarget "FXLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDA440D24B1D58A00D69168 /* Debug */,
+				1FDA440E24B1D58A00D69168 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
