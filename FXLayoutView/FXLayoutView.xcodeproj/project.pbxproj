@@ -14,7 +14,7 @@
 		1FDA43F124B1CF2100D69168 /* FXColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43EF24B1CF2100D69168 /* FXColumnView.m */; };
 		1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43F924B1D58500D69168 /* AppDelegate.m */; };
 		1FDA43FD24B1D58500D69168 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43FC24B1D58500D69168 /* SceneDelegate.m */; };
-		1FDA440024B1D58500D69168 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43FF24B1D58500D69168 /* ViewController.m */; };
+		1FDA440024B1D58500D69168 /* RowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43FF24B1D58500D69168 /* RowViewController.m */; };
 		1FDA440324B1D58500D69168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440124B1D58500D69168 /* Main.storyboard */; };
 		1FDA440524B1D58A00D69168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440424B1D58A00D69168 /* Assets.xcassets */; };
 		1FDA440824B1D58A00D69168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */; };
@@ -45,8 +45,8 @@
 		1FDA43F924B1D58500D69168 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1FDA43FB24B1D58500D69168 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		1FDA43FC24B1D58500D69168 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		1FDA43FE24B1D58500D69168 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1FDA43FF24B1D58500D69168 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1FDA43FE24B1D58500D69168 /* RowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RowViewController.h; sourceTree = "<group>"; };
+		1FDA43FF24B1D58500D69168 /* RowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RowViewController.m; sourceTree = "<group>"; };
 		1FDA440224B1D58500D69168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FDA440424B1D58A00D69168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FDA440724B1D58A00D69168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 				1FDA43F924B1D58500D69168 /* AppDelegate.m */,
 				1FDA43FB24B1D58500D69168 /* SceneDelegate.h */,
 				1FDA43FC24B1D58500D69168 /* SceneDelegate.m */,
-				1FDA43FE24B1D58500D69168 /* ViewController.h */,
-				1FDA43FF24B1D58500D69168 /* ViewController.m */,
+				1FDA43FE24B1D58500D69168 /* RowViewController.h */,
+				1FDA43FF24B1D58500D69168 /* RowViewController.m */,
 				1FDA440124B1D58500D69168 /* Main.storyboard */,
 				1FDA440424B1D58A00D69168 /* Assets.xcassets */,
 				1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */,
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDA440024B1D58500D69168 /* ViewController.m in Sources */,
+				1FDA440024B1D58500D69168 /* RowViewController.m in Sources */,
 				1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */,
 				1FDA440B24B1D58A00D69168 /* main.m in Sources */,
 				1FDA43FD24B1D58500D69168 /* SceneDelegate.m in Sources */,
@@ -469,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36479T2TDV;
 				INFOPLIST_FILE = FXLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,6 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36479T2TDV;
 				INFOPLIST_FILE = FXLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

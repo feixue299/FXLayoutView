@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RowViewController.h
 //  FXLayout
 //
 //  Created by Mr.wu on 2020/7/5.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface RowViewController : UIViewController
 
 
 @end

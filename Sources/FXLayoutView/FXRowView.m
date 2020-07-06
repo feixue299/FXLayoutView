@@ -59,12 +59,10 @@
     CGFloat widthTotal = 0;
     for (UIView *view in self.subviews) {
         CGSize size = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        NSLog(@"view.size:%@, view.intrinsicContentSize:%@", NSStringFromCGSize(size), NSStringFromCGSize(view.intrinsicContentSize));
         widthTotal += size.width;
     }
     CGFloat width = self.frame.size.width;
     CGFloat rightPadding = MAX(width - widthTotal, 0);
-    NSLog(@"widthTotal:%f, width:%f", widthTotal, width);
     self.rightLayout.constant = -rightPadding;
 }
 
