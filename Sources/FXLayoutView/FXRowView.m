@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *supplementLayouts;
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *crossAxisConstraints;
+@property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *mainAxisConstraints;
 @end
 
 @implementation FXRowView
@@ -53,6 +54,18 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self fx_updateRightConstant];
+}
+
+- (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
+    if (_crossAxisAlignment == crossAxisAlignment) return;
+    _crossAxisAlignment = crossAxisAlignment;
+    [self fx_addAllCrossAxisConstraint];
+    [self fx_addSupplementConstraintWithView:self.maxHeightView];
+}
+
+- (void)setMainAxisAlignment:(FXMainAxisAlignment)mainAxisAlignment {
+    if (_mainAxisAlignment == mainAxisAlignment) return;
+    _mainAxisAlignment = mainAxisAlignment;
 }
 
 - (void)fx_updateRightConstant {
@@ -119,6 +132,10 @@
     }
 }
 
+- (void)fx_addMainAxisConstraints {
+
+}
+
 - (void)fx_addAllCrossAxisConstraint {
     for (NSLayoutConstraint *layout in self.crossAxisConstraints) {
         layout.active = NO;
@@ -127,13 +144,6 @@
     for (UIView *view in self.subviews) {
         [self fx_addCrossAxisConstraintWithView:view];
     }
-}
-
-- (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
-    if (_crossAxisAlignment == crossAxisAlignment) return;
-    _crossAxisAlignment = crossAxisAlignment;
-    [self fx_addAllCrossAxisConstraint];
-    [self fx_addSupplementConstraintWithView:self.maxHeightView];
 }
 
 - (NSMutableArray<NSLayoutConstraint *> *)crossAxisConstraints {
@@ -148,6 +158,13 @@
         _supplementLayouts = @[].mutableCopy;
     }
     return _supplementLayouts;
+}
+
+- (NSMutableArray<NSLayoutConstraint *> *)mainAxisConstraints {
+    if (!_mainAxisConstraints) {
+        _mainAxisConstraints = @[].mutableCopy;
+    }
+    return _mainAxisConstraints;
 }
 
 @end

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FXColumnView : UIView
 @property (nonatomic) FXMainAxisAlignment mainAxisAlignment;
+@property (nonatomic) FXCrossAxisAlignment crossAxisAlignment;
 @end
 
 NS_ASSUME_NONNULL_END
