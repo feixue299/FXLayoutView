@@ -12,11 +12,11 @@
 @property (nonatomic, strong) UIView *contentView;
 
 @property (nonatomic, strong) UIView *maxHeightView;
-@property (nonatomic, strong) NSLayoutConstraint *rightLayout;
 
-@property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *supplementLayouts;
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *crossAxisConstraints;
+@property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *crossAxisSupplementConstraints;
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *mainAxisConstraints;
+@property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *mainAxisSupplementConstraints;
 @end
 
 @implementation FXRowView
@@ -28,7 +28,7 @@
     [self fx_addCrossAxisConstraintWithView:view];
 
     if (self.subviews.count == 1) {
-        [view.leftAnchor constraintEqualToAnchor:self.leftAnchor].active = YES;
+        [self fx_addMainAxisConstraintsWithView:view preView:nil];
         [self fx_addSupplementConstraintWithView:view];
         self.maxHeightView = view;
     } else {
@@ -41,19 +41,17 @@
             self.maxHeightView = view;
             [self fx_addSupplementConstraintWithView:view];
         }
-        self.rightLayout.active = NO;
-        [preView.rightAnchor constraintEqualToAnchor:view.leftAnchor].active = YES;
+        [self fx_addMainAxisConstraintsWithView:view preView:preView];
         [preView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     }
-    self.rightLayout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
-    self.rightLayout.active = YES;
-    [self fx_updateRightConstant];
+    [self fx_addMainAxisSupplementConstraintsWithView:view];
+    [self fx_updateMainAxisSupplementConstraints];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self fx_updateRightConstant];
+    [self fx_updateMainAxisSupplementConstraints];
 }
 
 - (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
@@ -68,7 +66,7 @@
     _mainAxisAlignment = mainAxisAlignment;
 }
 
-- (void)fx_updateRightConstant {
+- (void)fx_updateMainAxisSupplementConstraints {
     CGFloat widthTotal = 0;
     for (UIView *view in self.subviews) {
         CGSize size = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
@@ -76,25 +74,25 @@
     }
     CGFloat width = self.frame.size.width;
     CGFloat rightPadding = MAX(width - widthTotal, 0);
-    self.rightLayout.constant = -rightPadding;
+    self.mainAxisSupplementConstraints.lastObject.constant = -rightPadding;
 }
 
 - (void)fx_addSupplementConstraintWithView:(UIView *)view {
-    for (NSLayoutConstraint *layout in self.supplementLayouts) {
+    for (NSLayoutConstraint *layout in self.crossAxisSupplementConstraints) {
         layout.active = NO;
     }
-    [self.supplementLayouts removeAllObjects];
+    [self.crossAxisSupplementConstraints removeAllObjects];
     switch (self.crossAxisAlignment) {
         case FXCrossAxisAlignmentStart: {
             NSLayoutConstraint *bottomLayout = [view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:0];
             bottomLayout.active = YES;
-            [self.supplementLayouts addObject:bottomLayout];
+            [self.crossAxisSupplementConstraints addObject:bottomLayout];
             break;
         }
         case FXCrossAxisAlignmentEnd: {
             NSLayoutConstraint *topLayout = [view.topAnchor constraintEqualToAnchor:self.topAnchor constant:0];
             topLayout.active = YES;
-            [self.supplementLayouts addObject:topLayout];
+            [self.crossAxisSupplementConstraints addObject:topLayout];
             break;
         }
         case FXCrossAxisAlignmentCenter: {
@@ -102,8 +100,8 @@
             topLayout.active = YES;
             NSLayoutConstraint *bottomLayout = [view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:0];
             bottomLayout.active = YES;
-            [self.supplementLayouts addObject:topLayout];
-            [self.supplementLayouts addObject:bottomLayout];
+            [self.crossAxisSupplementConstraints addObject:topLayout];
+            [self.crossAxisSupplementConstraints addObject:bottomLayout];
             break;
         }
     }
@@ -132,8 +130,59 @@
     }
 }
 
-- (void)fx_addMainAxisConstraints {
+- (void)fx_addMainAxisConstraintsWithView:(UIView *)view preView:(UIView *)preView {
+    NSLayoutConstraint *layout;
+    switch (self.mainAxisAlignment) {
+        case FXMainAxisAlignmentStart: {
+            if (preView) {
+                layout = [preView.rightAnchor constraintEqualToAnchor:view.leftAnchor];
+            } else {
+                layout = [view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
+            }
+            break;
+        }
+        case FXMainAxisAlignmentEnd: {
+            if (preView) {
+                layout = [preView.leftAnchor constraintEqualToAnchor:view.rightAnchor];
+            } else {
+                layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
+            }
+            break;
+        }
+        case FXMainAxisAlignmentCenter: {
+            
+            break;
+        }
+    }
+    
+    layout.active = YES;
+    [self.mainAxisConstraints addObject:layout];
+}
 
+- (void)fx_addMainAxisSupplementConstraintsWithView:(UIView *)view {
+    for (NSLayoutConstraint *layout in self.mainAxisSupplementConstraints) {
+        layout.active = NO;
+    }
+    [self.mainAxisSupplementConstraints removeAllObjects];
+    NSLayoutConstraint *layout;
+    switch (self.mainAxisAlignment) {
+        
+        case FXMainAxisAlignmentStart: {
+            layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
+            break;
+        }
+        case FXMainAxisAlignmentEnd: {
+            layout = [view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
+            break;
+        }
+            
+        case FXMainAxisAlignmentCenter: {
+            break;
+        }
+            
+    }
+    layout.active = YES;
+    [self.mainAxisSupplementConstraints addObject:layout];
 }
 
 - (void)fx_addAllCrossAxisConstraint {
@@ -153,11 +202,11 @@
     return _crossAxisConstraints;
 }
 
-- (NSMutableArray<NSLayoutConstraint *> *)supplementLayouts {
-    if (!_supplementLayouts) {
-        _supplementLayouts = @[].mutableCopy;
+- (NSMutableArray<NSLayoutConstraint *> *)crossAxisSupplementConstraints {
+    if (!_crossAxisSupplementConstraints) {
+        _crossAxisSupplementConstraints = @[].mutableCopy;
     }
-    return _supplementLayouts;
+    return _crossAxisSupplementConstraints;
 }
 
 - (NSMutableArray<NSLayoutConstraint *> *)mainAxisConstraints {
@@ -165,6 +214,13 @@
         _mainAxisConstraints = @[].mutableCopy;
     }
     return _mainAxisConstraints;
+}
+
+- (NSMutableArray<NSLayoutConstraint *> *)mainAxisSupplementConstraints {
+    if (!_mainAxisSupplementConstraints) {
+        _mainAxisSupplementConstraints = @[].mutableCopy;
+    }
+    return _mainAxisSupplementConstraints;
 }
 
 @end
