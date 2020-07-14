@@ -84,12 +84,39 @@
         [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         [crossView addArrangedSubview:button];
     }
+    UIStackView *mainView = [[UIStackView alloc] init];
+    mainView.alignment = UIStackViewAlignmentFill;
+    mainView.axis = UILayoutConstraintAxisHorizontal;
+    mainView.distribution = UIStackViewDistributionFillEqually;
+    {
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:@"MainStart" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(mainStartItem) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        [mainView addArrangedSubview:button];
+    }
+    {
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:@"MainEnd" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(mainEndItem) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        [mainView addArrangedSubview:button];
+    }
+    {
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:@"MainCenter" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(mainCenterItem) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        [mainView addArrangedSubview:button];
+    }
 
     [self.view addSubview:crossView];
+    [self.view addSubview:mainView];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.rowView];
 
     crossView.translatesAutoresizingMaskIntoConstraints = NO;
+    mainView.translatesAutoresizingMaskIntoConstraints = NO;
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     self.rowView.translatesAutoresizingMaskIntoConstraints = NO;
 
@@ -97,6 +124,10 @@
     [crossView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor].active = YES;
     [crossView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [crossView.heightAnchor constraintEqualToConstant:50].active = YES;
+    [mainView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [mainView.topAnchor constraintEqualToAnchor:crossView.bottomAnchor].active = YES;
+    [mainView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    [mainView.heightAnchor constraintEqualToConstant:50].active = YES;
 
     [self.rowView.leftAnchor constraintEqualToAnchor:self.scrollView.leftAnchor constant:0].active = YES;
     [self.rowView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor constant:200].active = YES;
@@ -105,7 +136,7 @@
     [self.rowView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor].active = YES;
 
     [self.scrollView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
-    [self.scrollView.topAnchor constraintEqualToAnchor:crossView.bottomAnchor].active = YES;
+    [self.scrollView.topAnchor constraintEqualToAnchor:mainView.bottomAnchor].active = YES;
     [self.scrollView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
@@ -120,6 +151,18 @@
 
 - (void)crossCenterItem {
     self.rowView.crossAxisAlignment = FXCrossAxisAlignmentCenter;
+}
+
+- (void)mainStartItem {
+    self.rowView.mainAxisAlignment = FXMainAxisAlignmentStart;
+}
+
+- (void)mainEndItem {
+    self.rowView.mainAxisAlignment = FXMainAxisAlignmentEnd;
+}
+
+- (void)mainCenterItem {
+    self.rowView.mainAxisAlignment = FXMainAxisAlignmentCenter;
 }
 
 @end

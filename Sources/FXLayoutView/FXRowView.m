@@ -64,6 +64,8 @@
 - (void)setMainAxisAlignment:(FXMainAxisAlignment)mainAxisAlignment {
     if (_mainAxisAlignment == mainAxisAlignment) return;
     _mainAxisAlignment = mainAxisAlignment;
+    [self fx_addAllMainAxisConstraint];
+    [self fx_addMainAxisSupplementConstraintsWithView:self.subviews.lastObject];
 }
 
 - (void)fx_updateMainAxisSupplementConstraints {
@@ -73,8 +75,33 @@
         widthTotal += size.width;
     }
     CGFloat width = self.frame.size.width;
-    CGFloat rightPadding = MAX(width - widthTotal, 0);
-    self.mainAxisSupplementConstraints.lastObject.constant = -rightPadding;
+    CGFloat padding = MAX(width - widthTotal, 0);
+    
+    switch (self.mainAxisAlignment) {
+        case FXMainAxisAlignmentCenter: {
+            self.mainAxisSupplementConstraints.lastObject.constant = -padding / 2;
+            self.mainAxisConstraints.firstObject.constant = padding / 2;
+            break;
+        }
+        case FXMainAxisAlignmentStart: {
+            self.mainAxisSupplementConstraints.lastObject.constant = -padding;
+            break;
+        }
+        case FXMainAxisAlignmentEnd: {
+            self.mainAxisSupplementConstraints.lastObject.constant = padding;
+            break;
+        }
+    }
+}
+
+- (void)fx_addAllMainAxisConstraint {
+    for (NSLayoutConstraint *layout in self.mainAxisConstraints) {
+        layout.active = NO;
+    }
+    [self.mainAxisConstraints removeAllObjects];
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self fx_addMainAxisConstraintsWithView:obj preView:idx == 0 ? nil : self.subviews[idx - 1]];
+    }];
 }
 
 - (void)fx_addSupplementConstraintWithView:(UIView *)view {
@@ -150,7 +177,11 @@
             break;
         }
         case FXMainAxisAlignmentCenter: {
-            
+            if (preView) {
+                layout = [preView.rightAnchor constraintEqualToAnchor:view.leftAnchor];
+            } else {
+                layout = [view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
+            }
             break;
         }
     }
@@ -177,6 +208,7 @@
         }
             
         case FXMainAxisAlignmentCenter: {
+            layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
             break;
         }
             
