@@ -10,7 +10,6 @@
 
 @interface FXRowView ()
 @property (nonatomic, strong) UIView *contentView;
-
 @property (nonatomic, strong) UIView *maxHeightView;
 
 @property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> *crossAxisConstraints;
