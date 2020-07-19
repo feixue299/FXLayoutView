@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXLayoutHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FXLayoutView : UIView
-
+@property (nonatomic) FXMainAxisAlignment mainAxisAlignment;
+@property (nonatomic) FXCrossAxisAlignment crossAxisAlignment;
 @end
 
 NS_ASSUME_NONNULL_END

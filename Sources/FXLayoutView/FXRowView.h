@@ -6,14 +6,12 @@
 //  Copyright © 2020 Mr.wu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "FXLayoutHeader.h"
+#import "FXLayoutView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FXRowView : UIView
-@property (nonatomic) FXMainAxisAlignment mainAxisAlignment;
-@property (nonatomic) FXCrossAxisAlignment crossAxisAlignment;
+@interface FXRowView : FXLayoutView
+
 @end
 
 NS_ASSUME_NONNULL_END

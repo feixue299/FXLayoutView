@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FXLayoutView.xcodeproj">
+      location = "self:/Users/wupengfei/Desktop/FXLayoutView/FXLayoutView/FXLayoutViewKit.xcodeproj">
    </FileRef>
 </Workspace>

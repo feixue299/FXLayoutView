@@ -54,15 +54,15 @@
 }
 
 - (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
-    if (_crossAxisAlignment == crossAxisAlignment) return;
-    _crossAxisAlignment = crossAxisAlignment;
+    if (self.crossAxisAlignment == crossAxisAlignment) return;
+    super.crossAxisAlignment = crossAxisAlignment;
     [self fx_addAllCrossAxisConstraint];
     [self fx_addSupplementConstraintWithView:self.maxHeightView];
 }
 
 - (void)setMainAxisAlignment:(FXMainAxisAlignment)mainAxisAlignment {
-    if (_mainAxisAlignment == mainAxisAlignment) return;
-    _mainAxisAlignment = mainAxisAlignment;
+    if (self.mainAxisAlignment == mainAxisAlignment) return;
+    super.mainAxisAlignment = mainAxisAlignment;
     [self fx_addAllMainAxisConstraint];
     [self fx_addMainAxisSupplementConstraintsWithView:self.subviews.lastObject];
 }

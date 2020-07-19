@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FDA43E224B1CE6300D69168 /* FXLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43E024B1CE6300D69168 /* FXLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F66756524C48106007ECE59 /* FXLayoutViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */; };
+		1F66756624C48106007ECE59 /* FXLayoutViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F66756A24C4812D007ECE59 /* FXLayoutViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F66756124C47F44007ECE59 /* FXLayoutViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EA24B1CEAC00D69168 /* FXRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDA43ED24B1CEAC00D69168 /* FXRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43EB24B1CEAC00D69168 /* FXRowView.m */; };
 		1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EE24B1CF2100D69168 /* FXColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,23 +22,37 @@
 		1FDA440824B1D58A00D69168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */; };
 		1FDA440B24B1D58A00D69168 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA440A24B1D58A00D69168 /* main.m */; };
 		1FDA441224B239C400D69168 /* FXLayoutHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA441124B232E800D69168 /* FXLayoutHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FF8023824C0725700B6BCED /* FXLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF8023624C0725700B6BCED /* FXLayoutView.h */; };
+		1FF8023824C0725700B6BCED /* FXLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF8023624C0725700B6BCED /* FXLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF8023924C0725700B6BCED /* FXLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8023724C0725700B6BCED /* FXLayoutView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1FDA440F24B1D59900D69168 /* PBXContainerItemProxy */ = {
+		1F66756724C48106007ECE59 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FDA43D424B1CE6300D69168 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1FDA43DC24B1CE6300D69168;
-			remoteInfo = FXLayoutView;
+			remoteInfo = FXLayoutViewKit;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F66756924C48107007ECE59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F66756624C48106007ECE59 /* FXLayoutViewKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FXLayoutView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FDA43E024B1CE6300D69168 /* FXLayoutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutView.h; sourceTree = "<group>"; };
+		1F66756124C47F44007ECE59 /* FXLayoutViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutViewKit.h; sourceTree = "<group>"; };
+		1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FXLayoutViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDA43E124B1CE6300D69168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDA43EA24B1CEAC00D69168 /* FXRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXRowView.h; sourceTree = "<group>"; };
 		1FDA43EB24B1CEAC00D69168 /* FXRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXRowView.m; sourceTree = "<group>"; };
@@ -71,38 +87,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F66756524C48106007ECE59 /* FXLayoutViewKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F66756424C48106007ECE59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1FDA43D324B1CE6300D69168 = {
 			isa = PBXGroup;
 			children = (
-				1FDA43DF24B1CE6300D69168 /* FXLayoutView */,
+				1FDA43DF24B1CE6300D69168 /* FXLayoutViewKit */,
 				1FDA43F724B1D58500D69168 /* FXLayout */,
 				1FDA43DE24B1CE6300D69168 /* Products */,
+				1F66756424C48106007ECE59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1FDA43DE24B1CE6300D69168 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */,
+				1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */,
 				1FDA43F624B1D58500D69168 /* FXLayout.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FDA43DF24B1CE6300D69168 /* FXLayoutView */ = {
+		1FDA43DF24B1CE6300D69168 /* FXLayoutViewKit */ = {
 			isa = PBXGroup;
 			children = (
 				1FDA43E824B1CE9900D69168 /* Sources */,
-				1FDA43E024B1CE6300D69168 /* FXLayoutView.h */,
 				1FDA43E124B1CE6300D69168 /* Info.plist */,
+				1F66756124C47F44007ECE59 /* FXLayoutViewKit.h */,
 			);
-			path = FXLayoutView;
+			path = FXLayoutViewKit;
 			sourceTree = "<group>";
 		};
 		1FDA43E824B1CE9900D69168 /* Sources */ = {
@@ -153,8 +178,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F66756A24C4812D007ECE59 /* FXLayoutViewKit.h in Headers */,
 				1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */,
-				1FDA43E224B1CE6300D69168 /* FXLayoutView.h in Headers */,
 				1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */,
 				1FF8023824C0725700B6BCED /* FXLayoutView.h in Headers */,
 				1FDA441224B239C400D69168 /* FXLayoutHeader.h in Headers */,
@@ -164,9 +189,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FDA43DC24B1CE6300D69168 /* FXLayoutView */ = {
+		1FDA43DC24B1CE6300D69168 /* FXLayoutViewKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FDA43E524B1CE6300D69168 /* Build configuration list for PBXNativeTarget "FXLayoutView" */;
+			buildConfigurationList = 1FDA43E524B1CE6300D69168 /* Build configuration list for PBXNativeTarget "FXLayoutViewKit" */;
 			buildPhases = (
 				1FDA43D824B1CE6300D69168 /* Headers */,
 				1FDA43D924B1CE6300D69168 /* Sources */,
@@ -177,9 +202,9 @@
 			);
 			dependencies = (
 			);
-			name = FXLayoutView;
+			name = FXLayoutViewKit;
 			productName = FXLayoutView;
-			productReference = 1FDA43DD24B1CE6300D69168 /* FXLayoutView.framework */;
+			productReference = 1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1FDA43F524B1D58500D69168 /* FXLayout */ = {
@@ -189,11 +214,12 @@
 				1FDA43F224B1D58500D69168 /* Sources */,
 				1FDA43F324B1D58500D69168 /* Frameworks */,
 				1FDA43F424B1D58500D69168 /* Resources */,
+				1F66756924C48107007ECE59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1FDA441024B1D59900D69168 /* PBXTargetDependency */,
+				1F66756824C48106007ECE59 /* PBXTargetDependency */,
 			);
 			name = FXLayout;
 			productName = FXLayout;
@@ -217,7 +243,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FDA43D724B1CE6300D69168 /* Build configuration list for PBXProject "FXLayoutView" */;
+			buildConfigurationList = 1FDA43D724B1CE6300D69168 /* Build configuration list for PBXProject "FXLayoutViewKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -230,7 +256,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FDA43DC24B1CE6300D69168 /* FXLayoutView */,
+				1FDA43DC24B1CE6300D69168 /* FXLayoutViewKit */,
 				1FDA43F524B1D58500D69168 /* FXLayout */,
 			);
 		};
@@ -281,10 +307,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1FDA441024B1D59900D69168 /* PBXTargetDependency */ = {
+		1F66756824C48106007ECE59 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1FDA43DC24B1CE6300D69168 /* FXLayoutView */;
-			targetProxy = 1FDA440F24B1D59900D69168 /* PBXContainerItemProxy */;
+			target = 1FDA43DC24B1CE6300D69168 /* FXLayoutViewKit */;
+			targetProxy = 1F66756724C48106007ECE59 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -432,7 +458,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FXLayoutView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FXLayoutViewKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -441,7 +467,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wpf.FXLayoutView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = FXLayoutViewKit;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,7 +482,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FXLayoutView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FXLayoutViewKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -465,7 +491,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wpf.FXLayoutView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = FXLayoutViewKit;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,7 +535,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FDA43D724B1CE6300D69168 /* Build configuration list for PBXProject "FXLayoutView" */ = {
+		1FDA43D724B1CE6300D69168 /* Build configuration list for PBXProject "FXLayoutViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FDA43E324B1CE6300D69168 /* Debug */,
@@ -518,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FDA43E524B1CE6300D69168 /* Build configuration list for PBXNativeTarget "FXLayoutView" */ = {
+		1FDA43E524B1CE6300D69168 /* Build configuration list for PBXNativeTarget "FXLayoutViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FDA43E624B1CE6300D69168 /* Debug */,

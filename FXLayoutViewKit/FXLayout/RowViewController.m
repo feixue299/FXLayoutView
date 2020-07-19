@@ -7,7 +7,7 @@
 //
 
 #import "RowViewController.h"
-#import <FXLayoutView/FXLayoutView.h>
+#import <FXLayoutViewKit/FXLayoutViewKit.h>
 
 @interface RowViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
