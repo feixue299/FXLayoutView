@@ -10,12 +10,20 @@
 
 @implementation FXColumnView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)init
+{
+    self = [super initWithDirection:UILayoutConstraintAxisVertical];
+    if (self) {
+        
+    }
+    return self;
 }
-*/
+
+- (instancetype)initWithDirection:(UILayoutConstraintAxis)direction {
+    if (self = [super initWithDirection:UILayoutConstraintAxisVertical]) {
+        
+    }
+    return self;
+}
 
 @end

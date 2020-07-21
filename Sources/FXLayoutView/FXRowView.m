@@ -10,4 +10,20 @@
 
 @implementation FXRowView
 
+- (instancetype)init
+{
+    self = [super initWithDirection:UILayoutConstraintAxisHorizontal];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithDirection:(UILayoutConstraintAxis)direction {
+    if (self = [super initWithDirection:UILayoutConstraintAxisHorizontal]) {
+        
+    }
+    return self;
+}
+
 @end

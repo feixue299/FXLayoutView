@@ -10,6 +10,7 @@
 		1F66756524C48106007ECE59 /* FXLayoutViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */; };
 		1F66756624C48106007ECE59 /* FXLayoutViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F66756A24C4812D007ECE59 /* FXLayoutViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F66756124C47F44007ECE59 /* FXLayoutViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F66756D24C71734007ECE59 /* ColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F66756C24C71734007ECE59 /* ColumnViewController.m */; };
 		1FDA43EC24B1CEAC00D69168 /* FXRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EA24B1CEAC00D69168 /* FXRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FDA43ED24B1CEAC00D69168 /* FXRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA43EB24B1CEAC00D69168 /* FXRowView.m */; };
 		1FDA43F024B1CF2100D69168 /* FXColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA43EE24B1CF2100D69168 /* FXColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		1F66756124C47F44007ECE59 /* FXLayoutViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutViewKit.h; sourceTree = "<group>"; };
+		1F66756B24C71734007ECE59 /* ColumnViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColumnViewController.h; sourceTree = "<group>"; };
+		1F66756C24C71734007ECE59 /* ColumnViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColumnViewController.m; sourceTree = "<group>"; };
 		1FDA43DD24B1CE6300D69168 /* FXLayoutViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FXLayoutViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDA43E124B1CE6300D69168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDA43EA24B1CEAC00D69168 /* FXRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXRowView.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				1FDA43FC24B1D58500D69168 /* SceneDelegate.m */,
 				1FDA43FE24B1D58500D69168 /* RowViewController.h */,
 				1FDA43FF24B1D58500D69168 /* RowViewController.m */,
+				1F66756B24C71734007ECE59 /* ColumnViewController.h */,
+				1F66756C24C71734007ECE59 /* ColumnViewController.m */,
 				1FDA440124B1D58500D69168 /* Main.storyboard */,
 				1FDA440424B1D58A00D69168 /* Assets.xcassets */,
 				1FDA440624B1D58A00D69168 /* LaunchScreen.storyboard */,
@@ -297,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F66756D24C71734007ECE59 /* ColumnViewController.m in Sources */,
 				1FDA440024B1D58500D69168 /* RowViewController.m in Sources */,
 				1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */,
 				1FDA440B24B1D58A00D69168 /* main.m in Sources */,

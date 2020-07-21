@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FXLayoutView : UIView
 @property (nonatomic) FXMainAxisAlignment mainAxisAlignment;
 @property (nonatomic) FXCrossAxisAlignment crossAxisAlignment;
+- (instancetype)initWithDirection:(UILayoutConstraintAxis)direction;
 @end
 
 NS_ASSUME_NONNULL_END
