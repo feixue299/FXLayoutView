@@ -8,9 +8,9 @@
     - [x] Start
     - [x] End
     - [x] Center
-    - [ ] spaceBetween
-    - [ ] spaceAround
-    - [ ] spaceEvenly
+    - [x] spaceBetween
+    - [x] spaceAround
+    - [x] spaceEvenly
 - CrossAxisAlignment
     - [x] Start
     - [x] End
@@ -25,7 +25,7 @@ Create a `Package.swift` file.
 ```swift
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/feixue299/FXLayoutView.git", from: "0.1.0")
+        .package(url: "https://github.com/feixue299/FXLayoutView.git", from: "0.1.1")
     ],
     // ...
 )
