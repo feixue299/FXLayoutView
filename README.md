@@ -2,6 +2,16 @@
 
 ## Requirements
 - iOS 9.0+
+
+## Feature
+- MainAxisAlignment
+    - [x] Start
+    - [x] End
+    - [x] Center
+- CrossAxisAlignment
+    - [x] Start
+    - [x] End
+    - [x] Center
  
 ## Installation
 
