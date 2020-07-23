@@ -225,7 +225,8 @@
 - (void)fx_addMainAxisConstraintsWithView:(UIView *)view preView:(UIView *)preView {
     NSLayoutConstraint *layout;
     switch (self.mainAxisAlignment) {
-        case FXMainAxisAlignmentStart: {
+        case FXMainAxisAlignmentStart:
+        case FXMainAxisAlignmentCenter: {
             if (preView) {
                 switch (self.direction) {
                     case UILayoutConstraintAxisHorizontal:
@@ -269,28 +270,6 @@
             }
             break;
         }
-        case FXMainAxisAlignmentCenter: {
-            if (preView) {
-                switch (self.direction) {
-                    case UILayoutConstraintAxisHorizontal:
-                        layout = [preView.rightAnchor constraintEqualToAnchor:view.leftAnchor];
-                        break;
-                    case UILayoutConstraintAxisVertical:
-                        layout = [preView.bottomAnchor constraintEqualToAnchor:view.topAnchor];
-                        break;
-                }
-            } else {
-                switch (self.direction) {
-                    case UILayoutConstraintAxisHorizontal:
-                        layout = [view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
-                        break;
-                    case UILayoutConstraintAxisVertical:
-                        layout = [view.topAnchor constraintEqualToAnchor:self.topAnchor];
-                        break;
-                }
-            }
-            break;
-        }
     }
 
     layout.active = YES;
@@ -304,7 +283,8 @@
     [self.mainAxisSupplementConstraints removeAllObjects];
     NSLayoutConstraint *layout;
     switch (self.mainAxisAlignment) {
-        case FXMainAxisAlignmentStart: {
+        case FXMainAxisAlignmentStart:
+        case FXMainAxisAlignmentCenter: {
             switch (self.direction) {
                 case UILayoutConstraintAxisHorizontal:
                     layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
@@ -322,18 +302,6 @@
                     break;
                 case UILayoutConstraintAxisVertical:
                     layout = [view.topAnchor constraintEqualToAnchor:self.topAnchor];
-                    break;
-            }
-            break;
-        }
-
-        case FXMainAxisAlignmentCenter: {
-            switch (self.direction) {
-                case UILayoutConstraintAxisHorizontal:
-                    layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
-                    break;
-                case UILayoutConstraintAxisVertical:
-                    layout = [view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
                     break;
             }
             break;
