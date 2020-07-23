@@ -25,6 +25,7 @@
 		1FDA441224B239C400D69168 /* FXLayoutHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA441124B232E800D69168 /* FXLayoutHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF8023824C0725700B6BCED /* FXLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF8023624C0725700B6BCED /* FXLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF8023924C0725700B6BCED /* FXLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8023724C0725700B6BCED /* FXLayoutView.m */; };
+		C35235D824C97AC9005A711E /* LayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C35235D724C97AC8005A711E /* LayoutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		1FDA441124B232E800D69168 /* FXLayoutHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutHeader.h; sourceTree = "<group>"; };
 		1FF8023624C0725700B6BCED /* FXLayoutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLayoutView.h; sourceTree = "<group>"; };
 		1FF8023724C0725700B6BCED /* FXLayoutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXLayoutView.m; sourceTree = "<group>"; };
+		C35235D624C97AC8005A711E /* LayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutViewController.h; sourceTree = "<group>"; };
+		C35235D724C97AC8005A711E /* LayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayoutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 				1FDA43F924B1D58500D69168 /* AppDelegate.m */,
 				1FDA43FB24B1D58500D69168 /* SceneDelegate.h */,
 				1FDA43FC24B1D58500D69168 /* SceneDelegate.m */,
+				C35235D624C97AC8005A711E /* LayoutViewController.h */,
+				C35235D724C97AC8005A711E /* LayoutViewController.m */,
 				1FDA43FE24B1D58500D69168 /* RowViewController.h */,
 				1FDA43FF24B1D58500D69168 /* RowViewController.m */,
 				1F66756B24C71734007ECE59 /* ColumnViewController.h */,
@@ -304,6 +309,7 @@
 			files = (
 				1F66756D24C71734007ECE59 /* ColumnViewController.m in Sources */,
 				1FDA440024B1D58500D69168 /* RowViewController.m in Sources */,
+				C35235D824C97AC9005A711E /* LayoutViewController.m in Sources */,
 				1FDA43FA24B1D58500D69168 /* AppDelegate.m in Sources */,
 				1FDA440B24B1D58A00D69168 /* main.m in Sources */,
 				1FDA43FD24B1D58500D69168 /* SceneDelegate.m in Sources */,

@@ -46,7 +46,6 @@
         CGSize max = [self.maxView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
 
         if (self.direction == UILayoutConstraintAxisHorizontal) {
-            
         }
         switch (self.direction) {
             case UILayoutConstraintAxisHorizontal: {
@@ -64,7 +63,7 @@
                 break;
             }
         }
-        
+
         [self fx_addMainAxisConstraintsWithView:view preView:preView];
         [preView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:self.direction];
         [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:self.direction];
@@ -104,7 +103,6 @@
                 mainAxisTotal += size.height;
                 break;
         }
-        
     }
     CGFloat mainAxis = self.direction == UILayoutConstraintAxisHorizontal ? self.frame.size.width : self.frame.size.height;
     CGFloat padding = MAX(mainAxis - mainAxisTotal, 0);
@@ -123,6 +121,31 @@
             self.mainAxisSupplementConstraints.lastObject.constant = padding;
             break;
         }
+        case FXMainAxisAlignmentSpaceBetween: {
+            CGFloat offset = padding / (self.subviews.count - 1);
+            for (int i = 1; i < self.mainAxisConstraints.count; i++) {
+                self.mainAxisConstraints[i].constant = -offset;
+            }
+            break;
+        }
+        case FXMainAxisAlignmentSpaceAround: {
+            CGFloat offset = padding / self.subviews.count;
+            for (int i = 1; i < self.mainAxisConstraints.count; i++) {
+                self.mainAxisConstraints[i].constant = -offset;
+            }
+            self.mainAxisConstraints.firstObject.constant = offset / 2;
+            self.mainAxisSupplementConstraints.lastObject.constant = -(offset / 2);
+            break;
+        }
+        case FXMainAxisAlignmentSpaceEvenly: {
+            CGFloat offset = padding / (self.subviews.count + 1);
+            for (int i = 1; i < self.mainAxisConstraints.count; i++) {
+                self.mainAxisConstraints[i].constant = -offset;
+            }
+            self.mainAxisConstraints.firstObject.constant = offset;
+            self.mainAxisSupplementConstraints.lastObject.constant = -offset;
+            break;
+        }
     }
 }
 
@@ -131,7 +154,7 @@
         layout.active = NO;
     }
     [self.mainAxisConstraints removeAllObjects];
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         [self fx_addMainAxisConstraintsWithView:obj preView:idx == 0 ? nil : self.subviews[idx - 1]];
     }];
 }
@@ -226,7 +249,10 @@
     NSLayoutConstraint *layout;
     switch (self.mainAxisAlignment) {
         case FXMainAxisAlignmentStart:
-        case FXMainAxisAlignmentCenter: {
+        case FXMainAxisAlignmentCenter:
+        case FXMainAxisAlignmentSpaceBetween:
+        case FXMainAxisAlignmentSpaceAround:
+        case FXMainAxisAlignmentSpaceEvenly: {
             if (preView) {
                 switch (self.direction) {
                     case UILayoutConstraintAxisHorizontal:
@@ -284,7 +310,10 @@
     NSLayoutConstraint *layout;
     switch (self.mainAxisAlignment) {
         case FXMainAxisAlignmentStart:
-        case FXMainAxisAlignmentCenter: {
+        case FXMainAxisAlignmentCenter:
+        case FXMainAxisAlignmentSpaceBetween:
+        case FXMainAxisAlignmentSpaceAround:
+        case FXMainAxisAlignmentSpaceEvenly: {
             switch (self.direction) {
                 case UILayoutConstraintAxisHorizontal:
                     layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
@@ -306,7 +335,6 @@
             }
             break;
         }
-
     }
     layout.active = YES;
     [self.mainAxisSupplementConstraints addObject:layout];
@@ -321,7 +349,6 @@
         [self fx_addCrossAxisConstraintWithView:view];
     }
 }
-
 
 - (NSMutableArray<NSLayoutConstraint *> *)crossAxisConstraints {
     if (!_crossAxisConstraints) {

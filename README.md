@@ -8,6 +8,9 @@
     - [x] Start
     - [x] End
     - [x] Center
+    - [ ] spaceBetween
+    - [ ] spaceAround
+    - [ ] spaceEvenly
 - CrossAxisAlignment
     - [x] Start
     - [x] End

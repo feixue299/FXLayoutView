@@ -13,6 +13,9 @@ typedef NS_ENUM(NSUInteger, FXMainAxisAlignment) {
     FXMainAxisAlignmentStart,
     FXMainAxisAlignmentEnd,
     FXMainAxisAlignmentCenter,
+    FXMainAxisAlignmentSpaceBetween,
+    FXMainAxisAlignmentSpaceAround,
+    FXMainAxisAlignmentSpaceEvenly,
 };
 
 typedef NS_ENUM(NSUInteger, FXCrossAxisAlignment) {

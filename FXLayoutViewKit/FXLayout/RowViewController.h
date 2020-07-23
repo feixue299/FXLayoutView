@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LayoutViewController.h"
 
-@interface RowViewController : UIViewController
+@interface RowViewController : LayoutViewController
 
 
 @end
