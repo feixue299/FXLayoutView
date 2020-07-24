@@ -15,6 +15,8 @@
     - [x] Start
     - [x] End
     - [x] Center
+    - [ ] stretch
+    - [ ] baseline
  
 ## Installation
 
