@@ -77,6 +77,22 @@
     [self fx_updateMainAxisSupplementConstraints];
 }
 
+- (void)setMaxView:(UIView *)maxView {
+    for (NSLayoutConstraint *layout in _maxView.constraints) {
+        if (self.direction == UILayoutConstraintAxisHorizontal) {
+            if (layout.firstAttribute == NSLayoutAttributeHeight) {
+                layout.priority = UILayoutPriorityDefaultLow;
+            }
+        } else {
+            if (layout.firstAttribute == NSLayoutAttributeWidth) {
+                layout.priority = UILayoutPriorityDefaultLow;
+            }
+        }
+    }
+
+    _maxView = maxView;
+}
+
 - (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
     if (_crossAxisAlignment == crossAxisAlignment) return;
     _crossAxisAlignment = crossAxisAlignment;
@@ -199,9 +215,13 @@
             }
             break;
         }
+        case FXCrossAxisAlignmentStretch:
+            break;
     }
-    crossAxisSupplementConstraint.active = YES;
-    [self.crossAxisSupplementConstraints addObject:crossAxisSupplementConstraint];
+    if (crossAxisSupplementConstraint) {
+        crossAxisSupplementConstraint.active = YES;
+        [self.crossAxisSupplementConstraints addObject:crossAxisSupplementConstraint];
+    }
 }
 
 - (void)fx_addCrossAxisConstraintWithView:(UIView *)view {
@@ -237,6 +257,25 @@
                 case UILayoutConstraintAxisVertical:
                     crossAxisConstraint = [view.centerXAnchor constraintEqualToAnchor:self.centerXAnchor];
                     break;
+            }
+            break;
+        }
+        case FXCrossAxisAlignmentStretch: {
+            switch (self.direction) {
+                case UILayoutConstraintAxisHorizontal: {
+                    crossAxisConstraint = [view.topAnchor constraintEqualToAnchor:self.topAnchor];
+                    NSLayoutConstraint *layout = [view.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+                    layout.active = YES;
+                    [self.crossAxisConstraints addObject:layout];
+                    break;
+                }
+                case UILayoutConstraintAxisVertical: {
+                    crossAxisConstraint = [view.leftAnchor constraintEqualToAnchor:self.leftAnchor];
+                    NSLayoutConstraint *layout = [view.rightAnchor constraintEqualToAnchor:self.rightAnchor];
+                    layout.active = YES;
+                    [self.crossAxisConstraints addObject:layout];
+                    break;
+                }
             }
             break;
         }

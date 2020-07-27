@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, FXCrossAxisAlignment) {
     FXCrossAxisAlignmentStart,
     FXCrossAxisAlignmentEnd,
     FXCrossAxisAlignmentCenter,
+    FXCrossAxisAlignmentStretch,
 };
 
 #endif /* FXLayoutHeader_h */

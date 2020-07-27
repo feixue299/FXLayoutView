@@ -80,6 +80,17 @@
         [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         [crossView addArrangedSubview:button];
     }
+    UIStackView *crossOtherView = [[UIStackView alloc] init];
+    crossOtherView.alignment = UIStackViewAlignmentFill;
+    crossOtherView.axis = UILayoutConstraintAxisHorizontal;
+    crossOtherView.distribution = UIStackViewDistributionFillEqually;
+    {
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:@"CrossStretch" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(crossStretchItem) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        [crossOtherView addArrangedSubview:button];
+    }
     UIStackView *mainView = [[UIStackView alloc] init];
     mainView.alignment = UIStackViewAlignmentFill;
     mainView.axis = UILayoutConstraintAxisHorizontal;
@@ -134,12 +145,14 @@
     }
 
     [self.view addSubview:crossView];
+    [self.view addSubview:crossOtherView];
     [self.view addSubview:mainView];
     [self.view addSubview:mainSpaceView];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.layoutView];
 
     crossView.translatesAutoresizingMaskIntoConstraints = NO;
+    crossOtherView.translatesAutoresizingMaskIntoConstraints = NO;
     mainView.translatesAutoresizingMaskIntoConstraints = NO;
     mainSpaceView.translatesAutoresizingMaskIntoConstraints = NO;
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -149,8 +162,12 @@
     [crossView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor].active = YES;
     [crossView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [crossView.heightAnchor constraintEqualToConstant:50].active = YES;
+    [crossOtherView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [crossOtherView.topAnchor constraintEqualToAnchor:crossView.bottomAnchor].active = YES;
+    [crossOtherView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    [crossOtherView.heightAnchor constraintEqualToConstant:50].active = YES;
     [mainView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
-    [mainView.topAnchor constraintEqualToAnchor:crossView.bottomAnchor].active = YES;
+    [mainView.topAnchor constraintEqualToAnchor:crossOtherView.bottomAnchor].active = YES;
     [mainView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [mainView.heightAnchor constraintEqualToConstant:50].active = YES;
     [mainSpaceView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
@@ -181,6 +198,10 @@
     self.layoutView.crossAxisAlignment = FXCrossAxisAlignmentCenter;
 }
 
+- (void)crossStretchItem {
+    self.layoutView.crossAxisAlignment = FXCrossAxisAlignmentStretch;
+}
+
 - (void)mainStartItem {
     self.layoutView.mainAxisAlignment = FXMainAxisAlignmentStart;
 }
@@ -204,5 +225,6 @@
 - (void)mainSpaceEvenlyItem {
     self.layoutView.mainAxisAlignment = FXMainAxisAlignmentSpaceEvenly;
 }
+
 
 @end

@@ -15,8 +15,7 @@
     - [x] Start
     - [x] End
     - [x] Center
-    - [ ] stretch
-    - [ ] baseline
+    - [x] stretch
  
 ## Installation
 
@@ -27,7 +26,7 @@ Create a `Package.swift` file.
 ```swift
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/feixue299/FXLayoutView.git", from: "0.1.1")
+        .package(url: "https://github.com/feixue299/FXLayoutView.git", from: "0.1.2")
     ],
     // ...
 )
