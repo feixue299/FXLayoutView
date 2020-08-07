@@ -37,37 +37,13 @@
 
     if (self.subviews.count == 1) {
         [self fx_addMainAxisConstraintsWithView:view preView:nil];
-        self.maxView = view;
-        [self fx_addSupplementConstraintWithView:view];
     } else {
         UIView *preView = self.subviews[self.subviews.count - 2];
-
-        CGSize viewSize = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        CGSize max = [self.maxView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-
-        if (self.direction == UILayoutConstraintAxisHorizontal) {
-        }
-        switch (self.direction) {
-            case UILayoutConstraintAxisHorizontal: {
-                if (max.height < viewSize.height) {
-                    self.maxView = view;
-                    [self fx_addSupplementConstraintWithView:view];
-                }
-                break;
-            }
-            case UILayoutConstraintAxisVertical: {
-                if (max.width < viewSize.width) {
-                    self.maxView = view;
-                    [self fx_addSupplementConstraintWithView:view];
-                }
-                break;
-            }
-        }
-
         [self fx_addMainAxisConstraintsWithView:view preView:preView];
         [preView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:self.direction];
         [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:self.direction];
     }
+    [self fx_updateCrossAxisSupplementConstraints];
     [self fx_addMainAxisSupplementConstraintsWithView:view];
     [self fx_updateMainAxisSupplementConstraints];
 }
@@ -75,29 +51,61 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self fx_updateMainAxisSupplementConstraints];
+    [self fx_updateCrossAxisSupplementConstraints];
 }
 
-- (void)setMaxView:(UIView *)maxView {
-    for (NSLayoutConstraint *layout in _maxView.constraints) {
-        if (self.direction == UILayoutConstraintAxisHorizontal) {
-            if (layout.firstAttribute == NSLayoutAttributeHeight) {
-                layout.priority = UILayoutPriorityDefaultLow;
+- (void)fx_updateCrossAxisSupplementConstraints {
+    UIView *maxView = self.subviews.firstObject;
+    CGSize maxSize = [maxView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    for (UIView *view in self.subviews) {
+        CGSize viewSize = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        switch (self.direction) {
+            case UILayoutConstraintAxisHorizontal: {
+                if (maxSize.height < viewSize.height) {
+                    maxView = view;
+                    maxSize = viewSize;
+                }
+                break;
             }
-        } else {
-            if (layout.firstAttribute == NSLayoutAttributeWidth) {
-                layout.priority = UILayoutPriorityDefaultLow;
+            case UILayoutConstraintAxisVertical: {
+                if (maxSize.width < viewSize.width) {
+                    maxView = view;
+                    maxSize = viewSize;
+                }
+                break;
             }
         }
     }
+    [self setMaxView:maxView];
+    [self fx_addSupplementConstraintWithView:maxView];
+}
 
+- (void)fx_updatePriority:(UIView *)maxView priority:(UILayoutPriority)priority {
+    for (NSLayoutConstraint *layout in maxView.constraints) {
+        if (self.direction == UILayoutConstraintAxisHorizontal) {
+            if (layout.firstAttribute == NSLayoutAttributeHeight) {
+                layout.priority = priority;
+            }
+        } else {
+            if (layout.firstAttribute == NSLayoutAttributeWidth) {
+                layout.priority = priority;
+            }
+        }
+    }
+}
+
+- (void)setMaxView:(UIView *)maxView {
+    [self fx_updatePriority:_maxView priority:UILayoutPriorityDefaultLow];
+    [self fx_updatePriority:maxView priority:UILayoutPriorityRequired];
     _maxView = maxView;
+
 }
 
 - (void)setCrossAxisAlignment:(FXCrossAxisAlignment)crossAxisAlignment {
     if (_crossAxisAlignment == crossAxisAlignment) return;
     _crossAxisAlignment = crossAxisAlignment;
     [self fx_addAllCrossAxisConstraint];
-    [self fx_addSupplementConstraintWithView:self.maxView];
+    [self fx_updateCrossAxisSupplementConstraints];
 }
 
 - (void)setMainAxisAlignment:(FXMainAxisAlignment)mainAxisAlignment {
